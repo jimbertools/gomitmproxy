@@ -102,6 +102,11 @@ func NewProxy(config Config) *Proxy {
 	return proxy
 }
 
+// set transport for the proxy (eg for proxy chaining)
+func (p *Proxy) SetTransport(transport http.RoundTripper) {
+	p.transport = transport
+}
+
 // Addr returns the address this proxy listens to.
 func (p *Proxy) Addr() (addr net.Addr) {
 	return p.addr
